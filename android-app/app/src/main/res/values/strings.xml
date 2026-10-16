@@ -1,0 +1,39 @@
+<resources>
+    <!-- DrawRush brand name — change here to rebrand the app -->
+    <string name="app_name">DrawRush</string>
+    <string name="app_tagline">Draw • Guess • Win!</string>
+    <string name="default_web_client_id">1012087424473-client.apps.googleusercontent.com</string>
+
+    <!-- Accessibility labels -->
+    <string name="cd_logo">DrawRush logo</string>
+    <string name="cd_avatar">Player avatar</string>
+    <string name="cd_nickname_input">Enter your nickname</string>
+    <string name="cd_create_room">Create a new room</string>
+    <string name="cd_join_room">Join an existing room</string>
+    <string name="cd_drawing_canvas">Drawing canvas</string>
+    <string name="cd_color_palette">Color palette</string>
+    <string name="cd_timer">Time remaining</string>
+    <string name="cd_word_pattern">Current word pattern</string>
+    <string name="cd_guess_input">Type your guess here</string>
+    <string name="cd_send_guess">Submit guess</string>
+    <string name="cd_chat_input">Type a chat message</string>
+    <string name="cd_player_list">Player list</string>
+    <string name="cd_start_game">Start the game</string>
+
+    <!-- Error messages -->
+    <string name="error_nickname_required">Please enter a nickname</string>
+    <string name="error_nickname_too_long">Nickname must be 20 characters or fewer</string>
+    <string name="error_room_not_found">Room not found. Check the code and try again.</string>
+    <string name="error_room_full">This room is full.</string>
+    <string name="error_game_started">The game has already started.</string>
+    <string name="error_connection_failed">Connection failed. Please check your internet connection.</string>
+    <string name="error_auth_failed">Authentication failed. Please try again.</string>
+
+    <!-- Game messages -->
+    <string name="msg_waiting_for_host">Waiting for the host to start the game…</string>
+    <string name="msg_choosing_word">%1$s is choosing a word…</string>
+    <string name="msg_your_turn">Your turn to draw!</string>
+    <string name="msg_guessed_correctly">You guessed correctly!</string>
+    <string name="msg_round_over">Round over!</string>
+    <string name="msg_game_over">Game Over!</string>
+</resources>

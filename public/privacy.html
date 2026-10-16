@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DrawRush — Privacy Policy</title>
+  <meta name="description" content="Official Privacy Policy for DrawRush real-time multiplayer drawing and guessing game.">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --primary: #6366f1;
+      --accent: #ec4899;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      padding: 48px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #a855f7, #6366f1, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+    .effective-date {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+    }
+    h2 {
+      font-size: 1.4rem;
+      color: #e2e8f0;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      border-left: 4px solid var(--primary);
+      padding-left: 12px;
+    }
+    p, ul {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    ul {
+      padding-left: 24px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    strong {
+      color: var(--text);
+    }
+    .table-container {
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th, td {
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    th {
+      background: #0f172a;
+      color: var(--text);
+    }
+    td {
+      color: var(--text-muted);
+    }
+    .footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+    a {
+      color: #818cf8;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>DrawRush Privacy Policy</h1>
+    <div class="effective-date">Effective Date: October 16, 2026 &bull; Version 1.0.0</div>
+
+    <p>
+      This Privacy Policy applies to the <strong>DrawRush</strong> mobile application (the "App") developed and operated by the DrawRush team ("we", "us", or "our"). DrawRush is a real-time multiplayer drawing and guessing game. We respect your privacy and are committed to protecting personal data.
+    </p>
+
+    <h2>1. Information We Collect</h2>
+    <p>We collect and process the following categories of information strictly to provide gameplay, matchmaking, and social features:</p>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Data Category</th>
+            <th>Specific Data Points</th>
+            <th>Purpose</th>
+            <th>Storage / Retention</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Account Credentials</strong></td>
+            <td>Google Account ID (UID), Email, Display Name, Avatar URL</td>
+            <td>User authentication via Google Credential Manager, player profile, and friends network</td>
+            <td>Stored securely in Cloud Firestore (Firebase). Retained while account is active.</td>
+          </tr>
+          <tr>
+            <td><strong>Player Profile</strong></td>
+            <td>Nickname, selected avatar icon, unique player tag (e.g., #1234)</td>
+            <td>Displaying player identity in game lobbies, scoreboards, and friend lists</td>
+            <td>Stored in Cloud Firestore and local device preferences.</td>
+          </tr>
+          <tr>
+            <td><strong>Gameplay Actions</strong></td>
+            <td>Drawing coordinates (strokes, color, width), guesses submitted, score points</td>
+            <td>Real-time synchronization of game canvas and turn-based scoring during multiplayer matches</td>
+            <td>Processed in-memory on game servers. Dropped upon match completion; NOT archived.</td>
+          </tr>
+          <tr>
+            <td><strong>Chat Messages</strong></td>
+            <td>Text chat messages sent inside private room sessions</td>
+            <td>In-game communication and guess evaluation</td>
+            <td>Processed ephemerally in server RAM. Automatically discarded when game room closes.</td>
+          </tr>
+          <tr>
+            <td><strong>Friendships</strong></td>
+            <td>Friend IDs, friend request status (pending, accepted)</td>
+            <td>Allowing players to add friends and join games together</td>
+            <td>Stored securely in Cloud Firestore.</td>
+          </tr>
+          <tr>
+            <td><strong>Technical Data</strong></td>
+            <td>Socket connection ID, network connection status</td>
+            <td>Handling reconnection grace periods (15 seconds) when network interruptions occur</td>
+            <td>Volatile server memory during active connection only.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>2. Data We DO NOT Collect</h2>
+    <p>DrawRush does NOT collect, track, or share any of the following:</p>
+    <ul>
+      <li><strong>No Precise Location Data:</strong> We do not request or access GPS, fine location, or coarse location permissions.</li>
+      <li><strong>No Financial or Payment Information:</strong> DrawRush does not process credit cards, bank accounts, or financial data.</li>
+      <li><strong>No Contacts, Phone, or SMS:</strong> We do not access your address book, phone state, or text messages.</li>
+      <li><strong>No Third-Party Advertising Trackers:</strong> We do not include third-party advertising SDKs or data brokers.</li>
+    </ul>
+
+    <h2>3. Authentication & Third-Party Service Providers</h2>
+    <p>DrawRush relies on industry-standard Google Cloud and Firebase infrastructure to deliver secure services:</p>
+    <ul>
+      <li><strong>Google Sign-In / Credential Manager:</strong> Enables secure passwordless authentication without DrawRush ever seeing or storing your Google password.</li>
+      <li><strong>Google Firebase Authentication:</strong> Issues and validates cryptographic ID tokens to authenticate your Socket.IO multiplayer connection.</li>
+      <li><strong>Google Cloud Firestore:</strong> Houses encrypted profile records and friend connections with server-mediated access controls (direct client write access is blocked by security rules).</li>
+    </ul>
+
+    <h2>4. Data Encryption & Security</h2>
+    <p>
+      All data transmitted between the DrawRush mobile application and backend servers is encrypted in transit using industry-standard TLS (HTTPS / WSS). Network cleartext traffic is disabled (<code>usesCleartextTraffic="false"</code>). Game server communications utilize authenticated Socket.IO connections verifying Firebase ID tokens.
+    </p>
+
+    <h2>5. Data Retention & Account Deletion</h2>
+    <p>
+      You have the right to request deletion of your DrawRush account and all associated profile data at any time.
+    </p>
+    <p>
+      To delete your account and associated records (UID, nickname, profile, friend connections), please email us at <strong><a href="mailto:support@drawrush.app">support@drawrush.app</a></strong> with your registered Google account email. Upon receiving your request, we permanently purge your Firestore profile and friendship records within 30 days.
+    </p>
+
+    <h2>6. Children's Privacy</h2>
+    <p>
+      DrawRush is intended for general audiences. We do not knowingly collect personal information from children under the age of 13 (or under 16 in the European Economic Area) without verifiable parental consent. If we become aware that a child under the relevant age has provided personal data, we will promptly delete it.
+    </p>
+
+    <h2>7. Changes to This Privacy Policy</h2>
+    <p>
+      We may update our Privacy Policy periodically to reflect enhancements to our features or regulatory changes. The updated version will be indicated by an updated "Effective Date" at the top of this page.
+    </p>
+
+    <h2>8. Contact Us</h2>
+    <p>
+      If you have questions, comments, or data rights requests regarding this Privacy Policy, please contact us at:
+    </p>
+    <p>
+      <strong>DrawRush Support</strong><br>
+      Email: <a href="mailto:support@drawrush.app">support@drawrush.app</a><br>
+      Website: <a href="https://drawrush-510809.web.app">https://drawrush-510809.web.app</a>
+    </p>
+
+    <div class="footer">
+      &copy; 2026 DrawRush Team. All rights reserved.
+    </div>
+  </div>
+</body>
+</html>

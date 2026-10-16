@@ -1,0 +1,11 @@
+# DrawRush local.properties.example
+# Copy to local.properties (not committed to source control)
+
+# Android SDK location
+sdk.dir=C\:\\Users\\YourName\\AppData\\Local\\Android\\Sdk
+
+# Backend URL for development
+BACKEND_URL=http://10.0.2.2:3001
+
+# Firebase project
+FIREBASE_PROJECT_ID=your-project-id

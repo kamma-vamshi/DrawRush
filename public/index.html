@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DrawRush — Real-Time Multiplayer Drawing & Guessing Game</title>
+  <meta name="description" content="DrawRush is a fast-paced real-time multiplayer drawing and guessing game for Android.">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --primary: #6366f1;
+      --accent: #ec4899;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .hero {
+      text-align: center;
+      max-width: 700px;
+      margin-top: 60px;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #a855f7, #6366f1, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+    p.subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+    .btn-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .btn {
+      padding: 14px 28px;
+      border-radius: 9999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      font-size: 1rem;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #6366f1, #ec4899);
+      color: white;
+      box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 20px -3px rgba(99, 102, 241, 0.6);
+    }
+    .btn-secondary {
+      background: var(--card-bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      background: #334155;
+    }
+    .features {
+      max-width: 800px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      width: 100%;
+      margin-bottom: 60px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 24px;
+      border-radius: 12px;
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      color: #e2e8f0;
+      margin-bottom: 8px;
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    footer {
+      margin-top: auto;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      width: 100%;
+      max-width: 800px;
+    }
+    footer a {
+      color: #818cf8;
+      text-decoration: none;
+      margin: 0 12px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>DrawRush</h1>
+    <p class="subtitle">The fast-paced real-time multiplayer drawing and guessing game. Sketch your ideas, race against the clock, and climb the leaderboard with friends.</p>
+    <div class="btn-group">
+      <a href="privacy.html" class="btn btn-secondary">Privacy Policy</a>
+      <a href="mailto:support@drawrush.app" class="btn btn-secondary">Contact Support</a>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="card">
+      <h3>🎨 Real-Time Drawing</h3>
+      <p>Ultra-low latency stroke synchronization using optimized vector paths and WebSocket transmission.</p>
+    </div>
+    <div class="card">
+      <h3>⚡ Rapid Guessing</h3>
+      <p>Server-evaluated guess detection with automatic secret-word redaction and round scoring engine.</p>
+    </div>
+    <div class="card">
+      <h3>🔒 Private & Secure</h3>
+      <p>Server-authoritative game state with Google Credential Manager authentication and zero invasive tracking.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 DrawRush Team. All rights reserved.</p>
+    <p style="margin-top: 8px;">
+      <a href="privacy.html">Privacy Policy</a> &bull;
+      <a href="mailto:support@drawrush.app">Support</a>
+    </p>
+  </footer>
+</body>
+</html>

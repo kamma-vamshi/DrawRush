@@ -1,0 +1,40 @@
+# DrawRush .gitignore
+
+# ─── Secrets (NEVER commit these) ──────────────────────────────────────────
+local.properties
+keystore.properties
+*.jks
+*.keystore
+backend/.env
+*.pem
+*service-account*.json
+
+# ─── Android ───────────────────────────────────────────────────────────────
+android-app/.gradle/
+android-app/local.properties
+android-app/build/
+android-app/app/build/
+android-app/.idea/
+android-app/*.iml
+android-app/captures/
+android-app/.externalNativeBuild/
+android-app/.cxx/
+google-services.json
+android-app/app/google-services.json
+
+# ─── Backend ────────────────────────────────────────────────────────────────
+backend/node_modules/
+backend/dist/
+backend/.env
+backend/coverage/
+
+# ─── General ────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+*.tmp
+*.swp
+.firebase/
+*.apk
+*.aab

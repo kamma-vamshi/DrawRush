@@ -1,0 +1,44 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Background: solid violet fill -->
+    <path
+        android:fillColor="#6C5CE7"
+        android:pathData="M0,0 L108,0 L108,108 L0,108 Z" />
+    <!-- Paint brush handle (yellow) -->
+    <path
+        android:fillColor="#FDCA40"
+        android:pathData="M65,20 L72,27 L45,60 L38,53 Z" />
+    <!-- Brush bristles (white) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M38,53 L45,60 L36,68 C33,71 28,66 31,63 Z" />
+    <!-- Canvas frame: rounded rect as path (M=moveto A=arc L=lineto Z=close) -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="3"
+        android:fillColor="#00000000"
+        android:pathData="M22,26 L66,26 Q70,26 70,30 L70,62 Q70,66 66,66 L22,66 Q18,66 18,62 L18,30 Q18,26 22,26 Z" />
+    <!-- Chat bubble (green rounded rect) -->
+    <path
+        android:fillColor="#00B894"
+        android:pathData="M62,70 L85,70 Q90,70 90,75 L90,90 Q90,95 85,95 L62,95 Q57,95 57,90 L57,75 Q57,70 62,70 Z" />
+    <!-- Chat bubble tail -->
+    <path
+        android:fillColor="#00B894"
+        android:pathData="M62,95 L57,103 L72,95 Z" />
+    <!-- Question mark dot (white circle) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M73.5,86 m-1.5,0 a1.5,1.5 0 1,0 3,0 a1.5,1.5 0 1,0 -3,0" />
+    <!-- Question mark upper curve -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:strokeLineCap="round"
+        android:fillColor="#00000000"
+        android:pathData="M70.5,77 Q70.5,73 73.5,73 Q76.5,73 76.5,76.5 Q76.5,79.5 73.5,81.5 L73.5,84" />
+</vector>
+
