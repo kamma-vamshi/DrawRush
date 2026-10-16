@@ -78,6 +78,8 @@ export class Room {
   phaseTimer: ReturnType<typeof setTimeout> | null = null;
   hintTimer: ReturnType<typeof setTimeout> | null = null;
   gameStartedAt: number | null = null;
+  phaseStartedAt: number = 0;
+  phaseEndsAt: number = 0;
 
   constructor(hostPlayer: ServerPlayer, settings?: Partial<RoomSettings>) {
     this.roomId = generateRoomCode(); // reuse same generator for unique IDs
@@ -211,4 +213,115 @@ export class Room {
     this.currentRound.hintsGiven++;
     return this.currentRound.wordPattern;
   }
+
+  toJSON(): SerializedRoom {
+    return {
+      roomId: this.roomId,
+      roomCode: this.roomCode,
+      phase: this.phase,
+      settings: this.settings,
+      players: Array.from(this.players.entries()),
+      currentRound: this.currentRound
+        ? {
+            ...this.currentRound,
+            revealedIndices: Array.from(this.currentRound.revealedIndices),
+            usedWords: Array.from(this.currentRound.usedWords),
+          }
+        : null,
+      totalRoundsPlayed: this.totalRoundsPlayed,
+      artistQueue: [...this.artistQueue],
+      currentArtistIndex: this.currentArtistIndex,
+      drawingHistory: [...this.drawingHistory],
+      chatHistory: [...this.chatHistory],
+      createdAt: this.createdAt,
+      usedWordsThisGame: Array.from(this.usedWordsThisGame),
+      gameStartedAt: this.gameStartedAt,
+      phaseStartedAt: this.phaseStartedAt,
+      phaseEndsAt: this.phaseEndsAt,
+    };
+  }
+
+  static fromJSON(data: SerializedRoom): Room {
+    const hostEntry = data.players.find(([_, p]) => p.isHost);
+    const dummyHost: ServerPlayer = hostEntry
+      ? hostEntry[1]
+      : {
+          playerId: "system",
+          nickname: "Host",
+          avatar: "🦊",
+          score: 0,
+          connected: true,
+          ready: true,
+          isArtist: false,
+          hasGuessedCurrentWord: false,
+          correctGuessCount: 0,
+          isMuted: false,
+          isHost: true,
+          isBanned: false,
+          socketId: null,
+          disconnectedAt: null,
+        };
+
+    const room = new Room(dummyHost, data.settings);
+    (room as any).roomId = data.roomId;
+    (room as any).roomCode = data.roomCode;
+    room.phase = data.phase;
+    room.totalRoundsPlayed = data.totalRoundsPlayed;
+    room.artistQueue = [...data.artistQueue];
+    room.currentArtistIndex = data.currentArtistIndex;
+    room.createdAt = data.createdAt;
+    room.gameStartedAt = data.gameStartedAt;
+    room.phaseStartedAt = data.phaseStartedAt || 0;
+    room.phaseEndsAt = data.phaseEndsAt || 0;
+    room.players = new Map(data.players);
+    room.drawingHistory = [...data.drawingHistory];
+    room.chatHistory = [...data.chatHistory];
+    room.usedWordsThisGame = new Set(data.usedWordsThisGame);
+
+    if (data.currentRound) {
+      room.currentRound = {
+        ...data.currentRound,
+        revealedIndices: new Set(data.currentRound.revealedIndices),
+        usedWords: new Set(data.currentRound.usedWords),
+      };
+    } else {
+      room.currentRound = null;
+    }
+
+    return room;
+  }
+}
+
+export interface SerializedRoom {
+  roomId: string;
+  roomCode: string;
+  phase: GamePhase;
+  settings: RoomSettings;
+  players: [string, ServerPlayer][];
+  currentRound: {
+    roundNumber: number;
+    artistId: string;
+    secretWord: string;
+    wordPattern: string;
+    revealedIndices: number[];
+    hintCount: number;
+    hintsGiven: number;
+    hintIntervalMs: number;
+    startTimestamp: number;
+    endTimestamp: number;
+    correctGuessers: Array<{ playerId: string; timeMs: number; points: number }>;
+    wordChoicesForArtist: string[];
+    drawingSequence: number;
+    usedWords: string[];
+  } | null;
+  totalRoundsPlayed: number;
+  artistQueue: string[];
+  currentArtistIndex: number;
+  drawingHistory: DrawingHistoryEvent[];
+  chatHistory: ChatMessage[];
+  createdAt: number;
+  usedWordsThisGame: string[];
+  gameStartedAt: number | null;
+  phaseStartedAt: number;
+  phaseEndsAt: number;
 }

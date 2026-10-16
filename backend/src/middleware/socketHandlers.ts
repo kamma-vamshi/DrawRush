@@ -123,7 +123,10 @@ export function registerSocketHandlers(io: SocketServer): void {
   function getPlayerRoom(socket: Socket): Room | null {
     const data = socket.data as SocketData;
     if (!data.currentRoomCode) return null;
-    return roomStore.get(data.currentRoomCode) ?? null;
+    if (roomStore.getSync) {
+      return roomStore.getSync(data.currentRoomCode) ?? null;
+    }
+    return (roomStore.get(data.currentRoomCode) as Room) ?? null;
   }
 
   function getPlayer(socket: Socket, room: Room): ServerPlayer | null {
@@ -256,7 +259,7 @@ export function registerSocketHandlers(io: SocketServer): void {
       const { roomCode, nickname, avatar } = parse.data;
       const normalized = roomCode.toUpperCase().trim();
 
-      const room = roomStore.get(normalized);
+      const room = await roomStore.get(normalized);
       if (!room) return emitError(socket, ErrorCode.ROOM_NOT_FOUND, "Room not found");
 
       // Check if banned
@@ -715,7 +718,7 @@ export function registerSocketHandlers(io: SocketServer): void {
   ): Promise<void> {
     const data = socket.data as SocketData;
     if (!data.currentRoomCode) return;
-    const room = roomStore.get(data.currentRoomCode);
+    const room = await roomStore.get(data.currentRoomCode);
     if (!room) {
       data.currentRoomCode = null;
       return;
